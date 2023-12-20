@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding:0;
+}
+img{
+    width: 100%;
+}
+body{
+    background-color:#b9b8b8;
+    font-size: 18px;
+    font-family:'Oswald'Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+
+.container{
+    display: grid;
+    gap: 10px;
+}
+/* header */
+.header{
+    gap: 3px;
+    display: grid;
+    grid-template-areas:
+    'hero hero feature-1'
+    'hero hero feature-2';
+}
+
+.hero{
+    grid-area: hero;
+    min-height: 350px;
+    background-image:url(gambar/depan\ toko.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.hero h2, .hero p{
+    display: none;
+
+}
+.features{
+    
+    color: white;
+    display: grid;
+    /* justify-content: center;
+    align-content: center; */
+    place-content: center;
+    text-align: center;
+    cursor: pointer;  
+}
+.feature-1{
+    grid-area: feature-1;
+    background-image: url(gambar/sepeda\ baru.jpg  );
+    background-size: cover;
+    background-position: center;
+}
+.feature-2{
+    grid-area: feature-2;
+    background-image: url(gambar/sparepart\ sepeda.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.features .price{
+    font-size: 2em;
+    font-weight: 200;
+}
+
+/* navigasi */
+.menu{
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    align-items: center; 
+    
+}
+.menu .brand{
+    font-size: 1.3em;
+    color: #333;
+    text-decoration:underline;
+}
+
+.menu ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(100px, 1fr)) ;
+    gap: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.menu a{
+    display: block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.hero{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+/* humburger menu */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height:20px; 
+    justify-content:space-between;
+    position: relative;
+
+}
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height:28px;
+    opacity: 0;
+    left:-6px;
+    top:-4px;
+    cursor:pointer;
+    z-index:5;
+}
+
+
+.menu-toggle span{
+    display: block;
+    width: 27px;
+    height:3px;
+    background-color:rgb(10, 10, 10);
+    border-radius: 3px;
+    transition: all 0.6s;
+
+}
+/* produk */
+.produk{
+    gap: 3px;
+    margin-top:100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+.text-produk h2{
+     display: flex;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    position:absolute;
+    margin-top: 50px;
+    right: 45%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow:1px 2px 5px rgba(0,0,0, 0.5);
+    text-transform: uppercase;
+    
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    /* text-align: center;
+    margin-bottom: 20px;
+     */
+}
+.produk img{
+    box-shadow:0 0 5px rgba(0,0,0, 0.5);
+}
+
+/* about */
+.about{
+    display: grid;
+    grid-template-columns:minmax(300px, 1fr);
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.5);
+
+}
+.icon{
+    text-align: center;
+    font-size: 2em;
+}
+.about h2,p{
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   letter-spacing: 1px;
+   font-size: 0.8em;    
+   opacity: 80%;
+
+}
+.contact h2{
+    position: relative;
+    top: -20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.contact p{
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 2px rgba(255, 253, 253, 0.5);
+}
+.bi-file-person{
+    color: blue;
+}
+.nomor-wa p{
+    margin-bottom: 1px;
+    font-size: 16px;
+}
+.contact{
+    background-color:white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.5);
+}
+
+
+
+
+
+/* humburger menu animation */
+.menu-toggle span:nth-child(2){
+    transform-origin:0 0;
+    z-index:9;
+}
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform:rotate(45deg) translate(-1px,-1px);
+    background-color: white;  
+}
+.menu-toggle span:nth-child(4){
+transform-origin: 0 100%;
+z-index:10;
+}
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform:rotate(-45deg) translate(-1px,0);
+    background-color: white;
+}
+.menu-toggle input:checked ~ span:nth-child(3){
+    transform: scale(0);
+    opacity:0;
+}
+.bi-whatsapp{
+    color: green;
+    
+}
+
+
+
+/* respomsive brackpoint */
+@media (max-width: 1024px){
+    }
+    .menu{
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+    .menu .brand{
+        display:flex;
+        position: absolute;
+        margin-top: -1000px;
+        text-transform:uppercase;
+    }
+    .hero h2,.hero p{
+        display: block;
+        /* background-color:black; */
+        color: white;
+        padding: 5px;
+        display: grid;
+        margin-top: -150px;
+        margin-bottom: 150px;
+    }
+    
+
+@media (max-width: 768px){
+    .menu{
+        order: -1;
+        justify-items: end;
+    }
+    .menu ul{
+        display: flex;
+        position:fixed;
+        right: 0;
+        flex-direction:column;
+        background-color:rgb(0, 0, 0);
+        height:50vh;
+        top:0;
+        align-items:center;
+        justify-content:space-evenly;
+        z-index:1;
+        width:65%;
+        transform: translateY(-100%);
+        transition:all 1s;
+        opacity:0;
+        border-radius: 10px;
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.5)
+        }
+        .menu-toggle{
+            display: flex;
+            position: fixed;
+            z-index:999;
+            margin-top: 45px;
+            margin-right: 2px;
+        }
+        nav ul.slide{
+            transform:translateY(0);
+            opacity:0.9; 
+        }
+        
+}
+@media (max-width: 650px){
+    body{
+        margin: 5px;
+    }
+    .header{
+        grid-template-areas:
+        'hero'
+        'feature-1'
+        'feature-2';
+    }
+    .text-produk h2{
+        display: flex;
+        position: absolute;
+        right: 40%;
+        
+    
+
+    }
+
+}
